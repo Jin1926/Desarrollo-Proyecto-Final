@@ -1,3 +1,30 @@
-<div class="d-flex justify-content-center align-items-center min-vh-100 bg-dark text-light">
-    
+<div class="dashboard-container bg-dark text-light">
+    <div class="button-container mt-3">
+        <button mat-flat-button class="red-button" routerLink="/new-movie">Agregar Película</button>
+        </div>
+        <div class="container">
+            <table>
+            <thead>
+                <tr>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Género</th>
+                    <th scope="col">Año</th>
+                    <th scope="col">Duración</th>
+                    <th scope="col">Director</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (item of movies; track $index) {
+                    <tr>
+                        <td>{{item.titulo}}</td>
+                        <td>{{item.genero}}</td>
+                        <td>{{item.anioLanzamiento}}</td>
+                        <td>{{item.duracion}}</td>
+                        <td>{{item.director}}</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
 </div>

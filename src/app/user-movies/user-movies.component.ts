@@ -1,11 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { MovieAdmin } from '../interfaces/movi-admin';
+import { ServiceService } from '../services/service.service';
 
 @Component({
   selector: 'app-user-movies',
-  imports: [],
   templateUrl: './user-movies.component.html',
-  styleUrl: './user-movies.component.css'
+  styleUrls: ['./user-movies.component.css'],
 })
-export class UserMoviesComponent {
+export class UserMoviesComponent implements OnInit {
+  movies: MovieAdmin[] = [];
 
+  constructor(private apiService: ServiceService) {}
+
+  ngOnInit(): void {
+    // this.apiService.getOne().subscribe((movies) => {
+    //   this.movies = movies;
+    // });
+  }
 }
+

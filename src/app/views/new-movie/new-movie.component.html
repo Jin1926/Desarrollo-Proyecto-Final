@@ -1,1 +1,62 @@
-<p>new-movie works!</p>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Agregar Nueva Película</h2>
+    <form [formGroup]="authForm" (ngSubmit)="create()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="title">Título</label>
+                    <input type="text" formControlName="titulo" id="title" class="form-control" placeholder="Ingrese el título de la película" />
+                </div>
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Género</mat-label>
+                    <select matNativeControl formControlName="genero" required>
+                        <option value="action">Acción</option>
+                        <option value="comedy">Comedia</option>
+                        <option value="drama">Drama</option>
+                        <option value="horror">Horror</option>
+                    </select>
+                </mat-form-field>
+                <div class="form-group mb-3">
+                    <label for="year">Año de Lanzamiento</label>
+                    <input type="number" formControlName="anoLanza" id="year" class="form-control" placeholder="Ejemplo: 2024" />
+                </div>
+                <div class="form-group mb-3">
+                    <label for="director">Director</label>
+                    <input type="text" formControlName="director" id="director" class="form-control" placeholder="Ingrese el nombre del director" />
+                </div>
+                <div class="form-group mb-3">
+                    <label for="actors">Actores Principales</label>
+                    <input type="text" formControlName="actores" id="actors" class="form-control" placeholder="Ingrese los actores principales" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="duration">Duración (en minutos)</label>
+                    <input type="number" formControlName="duracion" id="duration" class="form-control" placeholder="Ejemplo: 120" />
+                </div>
+                <div class="form-group mb-3">
+                    <label for="rental-price">Precio de Alquiler</label>
+                    <input type="number" formControlName="precioAl" id="rental-price" class="form-control" placeholder="Ejemplo: 10.00" />
+                </div>
+                <div class="form-group mb-3">
+                    <label for="purchase-price">Precio de Compra</label>
+                    <input type="number" formControlName="precioCom" id="purchase-price" class="form-control" placeholder="Ejemplo: 20.00" />
+                </div>
+                <!-- <div class="form-group mb-3">
+                    <label for="poster">Imagen o Póster</label>
+                    <input type="file" id="poster" class="form-control"/>
+                </div> -->
+                <div class="form-group mb-3">
+                    <label for="rating">Calificación (opcional)</label>
+                    <input type="number" formControlName="rating" id="rating" class="form-control" placeholder="1 a 5" min="1" max="5" />
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary mt-3">Agregar Película</button>
+        </div>
+    </form>
+    <div class="text-center mt-3">
+        <a routerLink="/edit-movie" class="btn btn-secondary">Ir a Editar Película</a>
+    </div>
+</div>

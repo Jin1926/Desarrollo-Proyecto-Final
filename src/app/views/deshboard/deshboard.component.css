@@ -1,0 +1,25 @@
+/* Contenedor principal del dashboard */
+.dashboard-container {
+  position: relative; /* Permite posicionar elementos hijos relativos a este contenedor */
+  min-height: calc(100vh - 50px); /* Ajustar la altura restando la del header */
+  padding-top: 20px; /* Espacio debajo del header */
+}
+
+/* Contenedor del botón */
+.button-container {
+  position: absolute; /* Asegura que el botón se posicione relativo al contenedor del dashboard */
+  top: 0; /* Parte superior del contenedor */
+  right: 10px; /* Separación del borde derecho */
+}
+
+/* Estilo del botón */
+.red-button {
+  background-color: #ff0000 !important; /* Fondo rojo */
+  color: #ffffff !important; /* Texto blanco */
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.red-button:hover {
+  background-color: #cc0000 !important; /* Fondo rojo oscuro al pasar el mouse */
+}

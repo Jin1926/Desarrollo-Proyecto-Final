@@ -1,1 +1,24 @@
-<p>edit-movie works!</p>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Editar Película</h2>
+    <form>
+        <div class="row">
+            <!-- Campos iguales al dashboard pero prellenados con valores -->
+            <div class="col-md-6">
+            <div class="form-group mb-3">
+                <label for="title">Título</label>
+                <input type="text" id="title" class="form-control" value="Título Existente" />
+            </div>
+            <!-- Más campos como en el dashboard -->
+            </div>
+            <div class="col-md-6">
+            <div class="form-group mb-3">
+                <label for="rating">Calificación</label>
+                <input type="number" id="rating" class="form-control" value="3" min="1" max="5" />
+            </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success mt-3">Actualizar Película</button>
+        </div>
+    </form>
+</div>

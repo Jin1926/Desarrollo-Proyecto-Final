@@ -4,6 +4,7 @@ import { Users } from '../interfaces/users';
 import { Observable } from 'rxjs';
 import { AuthResponse } from '../interfaces/auth-response';
 import { environment } from '../../environments/environment';
+import { MovieAdmin } from '../interfaces/movi-admin';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,21 @@ export class ServiceService {
   
   setToken(token: string){
     localStorage.setItem("authToken", token);
+  }
+
+  logout(){
+    localStorage.removeItem("authToken");
+  }
+
+  getAllmovies(): Observable<MovieAdmin[]> {
+    return this.http.get<MovieAdmin[]>(`${environment.apiUrl}movies`);
+  }
+
+  getOne(id: string){
+    return this.http.get<MovieAdmin[]>(`${environment.apiUrl}movies${id}`);
+  }
+
+  create(movie: MovieAdmin){
+    return this.http.post<MovieAdmin>(`${environment.apiUrl}movies`, movie);
   }
 }

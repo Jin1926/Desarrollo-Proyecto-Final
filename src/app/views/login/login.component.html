@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-center align-items-center min-vh-100 bg-dark text-light">
+    <div class="card bg-secondary text-white shadow-lg p-4" style="width: 24rem;">
+        <h2 class="text-center mb-4">Iniciar Sesión</h2>
+            <form [formGroup]="authForm" (ngSubmit)="login()">
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Email or User</mat-label>
+                    <input matInput placeholder="Example@example" formControlName="email">
+                    @if (authForm.get('user')?.hasError('required')) {
+                        <mat-error>Is <strong>required</strong></mat-error>
+                    }
+                </mat-form-field>
+                
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" placeholder="Password" formControlName="password">
+                    @if (authForm.get('pass')?.hasError('required')) {
+                        <mat-error>Is <strong>required</strong></mat-error>
+                    }
+                </mat-form-field>
+                <button type="submit" class="btn btn-danger w-100">Iniciar Sesión</button>
+            </form>
+        <p class="text-center text-light mt-3">
+            ¿No tienes cuenta? 
+            <a routerLink="/register" class="text-warning text-decoration-none">Regístrate aquí</a>
+        </p>
+    </div>
+</div>

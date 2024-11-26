@@ -1,30 +1,39 @@
 <div class="dashboard-container bg-dark text-light">
     <div class="button-container mt-3">
-        <button mat-flat-button class="red-button" routerLink="/new-movie">Agregar Película</button>
-        </div>
-        <div class="container">
-            <table>
+        <button mat-flat-button class="red-button mx-2" routerLink="/new-movie">Agregar Película</button>
+        <button mat-flat-button class="red-button mx-2" (click)="logout()" routerLink="/login">Cerrar sesión</button>
+    </div>
+    <br><br>
+    <div class="container">
+        <table class="table table-striped text-light table-dark">
             <thead>
                 <tr>
-                    <th scope="col">Titulo</th>
-                    <th scope="col">Género</th>
-                    <th scope="col">Año</th>
-                    <th scope="col">Duración</th>
-                    <th scope="col">Director</th>
+                <th scope="col">#</th>
+                <th scope="col">Título</th>
+                <th scope="col">Género</th>
+                <th scope="col">Año</th>
+                <th scope="col">Duración</th>
+                <th scope="col">Director</th>
+                <th scope="col">Actores</th>
+                <th scope="col">Precio Alquiler</th>
+                <th scope="col">Precio Compra</th>
+                <th scope="col">Rating</th>
                 </tr>
             </thead>
-
             <tbody>
-                @for (item of movies; track $index) {
-                    <tr>
-                        <td>{{item.titulo}}</td>
-                        <td>{{item.genero}}</td>
-                        <td>{{item.anioLanzamiento}}</td>
-                        <td>{{item.duracion}}</td>
-                        <td>{{item.director}}</td>
-                    </tr>
-                }
+            <tr *ngFor="let item of movies; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item.titulo }}</td>
+                <td>{{ item.genero || 'N/A' }}</td>
+                <td>{{ item.anioLanza }}</td>
+                <td>{{ item.duracion }} min</td>
+                <td>{{ item.director }}</td>
+                <td>{{ item.actores }}</td>
+                <td>{{ item.precioAlquiler| currency }}</td>
+                <td>{{ item.precioCompra | currency }}</td>
+                <td>{{ item.calificacion }}</td>
+            </tr>
             </tbody>
         </table>
-        </div>
+    </div>
 </div>

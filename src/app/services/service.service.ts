@@ -25,8 +25,8 @@ export class ServiceService {
     localStorage.removeItem("authToken");
   }
 
-  getAllmovies(): Observable<MovieAdmin[]> {
-    return this.http.get<MovieAdmin[]>(`${environment.apiUrl}movies`);
+  getAllmovies(): Observable<{ data: MovieAdmin[] }> {
+    return this.http.get<{ data: MovieAdmin[] }>(`${environment.apiUrl}movies`);
   }
 
   getOne(id: string){
@@ -35,5 +35,9 @@ export class ServiceService {
 
   create(movie: MovieAdmin){
     return this.http.post<MovieAdmin>(`${environment.apiUrl}movies`, movie);
+  }
+
+  isLoggedIn(){
+    return localStorage.getItem("authToken");
   }
 }

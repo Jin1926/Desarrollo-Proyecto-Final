@@ -1,10 +1,10 @@
 export interface MovieAdmin {
+    _id: string;
     titulo: string;
-    descripcion: string;
-    genero: string;
-    anioLanzamiento: number;
+    anioLanza: number;
     director: string;
     actores: string[];
+    genero: string;
     duracion: number;
     precioAlquiler: number;
     precioCompra: number;
